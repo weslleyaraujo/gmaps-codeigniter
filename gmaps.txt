@@ -1,0 +1,20 @@
+//CONTROLLER:
+$this->load->library('Gmap');
+$this->gmap->GoogleMapAPI();
+$this->gmap->setMapType('hybrid');    
+$this->gmap->width = '740px';    
+$this->gmap->addMarkerByAddress("42 Beanland Gardens, Wibsey, Bradford,UK","Marker Title", "Marker Description");
+$data['headerjs']  = $this->gmap->getHeaderJS();
+$data['headermap'] = $this->gmap->getMapJS();
+$data['onload']    = $this->gmap->printOnLoad();
+$data['map']       = $this->gmap->printMap();
+$data['sidebar']   = "";             
+
+//view
+<?php echo $headerjs; ?>
+<?php echo $headermap; ?>
+
+<?php echo $onload; ?>
+<?php echo $map; ?>
+<?php echo $sidebar; ?>
+</body> 
